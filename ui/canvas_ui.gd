@@ -1,3 +1,7 @@
+# Tasks to do
+# Fix Game Over signal emitted multiple times []
+# Ensure responsibilities between game over message, UI canvas []
+
 extends CanvasLayer
 class_name CanvasUI
 
@@ -11,5 +15,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		SignalBus.level_restarted.emit()			
 		
 func _on_game_over_screen_appear() -> void:
+	print("Yo........")
 	var game_over_screen_scene = game_over_screen.instantiate()
 	add_child(game_over_screen_scene)

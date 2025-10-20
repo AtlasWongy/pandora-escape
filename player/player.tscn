@@ -36,4 +36,4 @@ one_shot = true
 [node name="CoyoteTimer" type="Timer" parent="Timers"]
 
 [node name="TileCheckTimer" type="Timer" parent="Timers"]
-wait_time = 0.25
+wait_time = 0.3

@@ -1,10 +1,3 @@
-# Tasks to do
-# Input Buffering [x]
-# Coyote Time [x]
-# Check Calculation for Short Jump [x]
-# Refactor [x]
-# Adjust Fall Speed []
-
 extends CharacterBody2D
 class_name Player
 
@@ -32,6 +25,7 @@ var color_map: Dictionary = {
 }
 var color_state: Vector2i 
 var early_end_jump_modifier: float = 1.0
+var tile_color: Vector2i 
 
 func _ready() -> void:
 	color_state = color_map[4194319][0]
@@ -45,9 +39,8 @@ func _input(event: InputEvent) -> void:
 		early_end_jump_modifier = 2.0
 
 func _physics_process(delta: float) -> void:
-	
 	handle_gravity(delta)
-	handle_jump()	
+	handle_jump()
 	handle_movement()
 	check_tile_color()
 
@@ -58,13 +51,14 @@ func handle_movement() -> void:
 func handle_gravity(delta: float) -> void:
 	if is_on_floor():
 		velocity.y = 0.0
+		early_end_jump_modifier = 1.0
 	elif velocity.y < 0.0:
 		velocity.y += jump_gravity * early_end_jump_modifier * delta 
 	else:
 		velocity = velocity.lerp(Vector2(velocity.x, fall_gravity), delta * 0.9)	
 
 func handle_jump() -> void:
-	if Input.is_action_just_pressed("ui_accept"):                                         
+	if Input.is_action_just_pressed("ui_accept") and (coyote_timer.time_left > 0.0 or is_on_floor()):                                         
 		jump_buffer_timer.start(jump_buffer_time)                                         
 
 	if !jump_buffer_timer.is_stopped() and (is_on_floor() or !coyote_timer.is_stopped()): 
@@ -72,25 +66,26 @@ func handle_jump() -> void:
 		jump_buffer_timer.stop()
 		coyote_timer.stop()
 	
+	if !is_on_floor() and velocity.y > 0.0 and velocity.x != 0.0 and coyote_timer.is_stopped():
+		coyote_timer.start(coyote_time)
+	
 func change_color(event: InputEventKey) -> void:	
 	var color_selection = color_map[event.keycode][1]
 	player_sprite.material.set_shader_parameter("new_color", color_selection)
 	color_state = color_map[event.keycode][0]	
 
 func check_tile_color()-> void:
-
-	if is_on_floor() and raycast.is_colliding():
-		early_end_jump_modifier = 1.0
-		
-		if raycast.get_collider() is TileMapLayer:
-			var tile_map: TileMapLayer = raycast.get_collider()
-			var tile_color: Vector2i = tile_map.get_cell_atlas_coords(tile_map.get_coords_for_body_rid(raycast.get_collider_rid()))
+	if raycast.get_collider() is TileMapLayer:
+		var tile_map: TileMapLayer = raycast.get_collider()
+		tile_color = tile_map.get_cell_atlas_coords(tile_map.get_coords_for_body_rid(raycast.get_collider_rid()))
+		if color_state != tile_color:
+			if tile_check_timer.is_stopped():
+				tile_check_timer.start()
+			await tile_check_timer.timeout
 			if color_state != tile_color:
-				if tile_check_timer.is_stopped():
-					tile_check_timer.start()
-				await tile_check_timer.timeout
-				if color_state != tile_color:
-					SignalBus.player_died.emit()
-
-	elif !is_on_floor() and velocity.y > 0.0 and velocity.x != 0.0 and coyote_timer.is_stopped(): 
-		coyote_timer.start(coyote_time) 	
+				# Seems to be the only way to cleanly emit the signal once
+				SignalBus.player_died.emit()
+				color_state = tile_color
+	elif raycast.get_collider() is not TileMapLayer and tile_check_timer.time_left > 0.0:
+		tile_check_timer.stop()
+		tile_color = Vector2i.ZERO
