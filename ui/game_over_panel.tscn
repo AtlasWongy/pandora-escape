@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://0tecf6y2kigu"]
+[gd_scene load_steps=6 format=3 uid="uid://0tecf6y2kigu"]
 
 [ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/minecraft.ttf" id="1_7x0hf"]
+[ext_resource type="Script" uid="uid://djwqbkhb702nr" path="res://ui/game_over_panel.gd" id="1_bkfim"]
+[ext_resource type="Resource" uid="uid://bjelwnkaghxwd" path="res://ui/game_over_message.tres" id="2_008qf"]
 [ext_resource type="FontFile" uid="uid://bhtxw21syitd4" path="res://ui/fonts/macs_minecraft/mac's Minecraft.ttf" id="2_o6xc2"]
+[ext_resource type="Resource" uid="uid://c2tuluq2nagsh" path="res://ui/game_finished_message.tres" id="3_7xbmh"]
 
 [node name="GameOverPanel" type="PanelContainer"]
 anchors_preset = 8
@@ -15,6 +18,9 @@ offset_right = 73.5
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bkfim")
+game_over_message_resource = ExtResource("2_008qf")
+game_finished_message_resource = ExtResource("3_7xbmh")
 
 [node name="GameOverVerticalBox" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -24,7 +30,6 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_7x0hf")
 bbcode_enabled = true
-text = "[center]Game Over[/center]"
 fit_content = true
 autowrap_mode = 2
 
@@ -33,5 +38,4 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_o6xc2")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "[center]Press [SPACE] to play again[/center]"
 fit_content = true

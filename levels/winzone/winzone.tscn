@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkbhd6wnl2iad"]
+
+[ext_resource type="Texture2D" uid="uid://w6jflh7k00ju" path="res://assets/platform_tile.png" id="1_d3nfu"]
+[ext_resource type="Script" uid="uid://dv2gytgc2j10b" path="res://levels/winzone/winzone.gd" id="1_tamb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tamb0"]
+size = Vector2(12, 8)
+
+[node name="Winzone" type="Area2D"]
+script = ExtResource("1_tamb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tamb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d3nfu")

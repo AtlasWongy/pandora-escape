@@ -15,6 +15,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		SignalBus.level_restarted.emit()			
 		
 func _on_game_over_screen_appear() -> void:
-	print("Yo........")
-	var game_over_screen_scene = game_over_screen.instantiate()
+	var game_over_screen_scene:GameOverPanel = game_over_screen.instantiate()
 	add_child(game_over_screen_scene)
