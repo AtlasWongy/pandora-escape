@@ -12,7 +12,9 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_pressed() and event.keycode == KEY_SPACE and GameManager.current_game_state == GameManager.GameState.GAME_OVER:
-		SignalBus.level_restarted.emit()			
+		SignalBus.level_restarted.emit()
+	elif event.is_pressed() and event.keycode == KEY_SPACE and GameManager.current_game_state == GameManager.GameState.GAME_WON:
+		SignalBus.level_proceeded.emit()
 		
 func _on_game_over_screen_appear() -> void:
 	var game_over_screen_scene:GameOverPanel = game_over_screen.instantiate()

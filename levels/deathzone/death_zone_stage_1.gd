@@ -1,0 +1,2 @@
+extends DeathZoneBaseClass
+class_name DeathZoneStageOne

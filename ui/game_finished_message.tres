@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_dcfnq")
 GameOverTitle = "Level Completed!!"
-GameOverSubtitle = "Press [SPACE] to play again"
+GameOverSubtitle = "Press [SPACE] to proceed"
 metadata/_custom_type_script = "uid://2tpctwgc1koi"

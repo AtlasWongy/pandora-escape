@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://oeb2a4qw2da2"]
+
+[ext_resource type="Script" uid="uid://bhm04yruvdukx" path="res://ui/attempt_counter/attempt_counter.gd" id="1_mk7nx"]
+[ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/minecraft.ttf" id="1_upf07"]
+
+[node name="AttemptCounter" type="MarginContainer"]
+offset_right = 79.0
+offset_bottom = 16.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+script = ExtResource("1_mk7nx")
+
+[node name="AttemptCounterHorizontalBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AttemptCounterLabel" type="RichTextLabel" parent="AttemptCounterHorizontalBox"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_upf07")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "Attempt:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AttemptCount" type="RichTextLabel" parent="AttemptCounterHorizontalBox"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_upf07")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "0"
+fit_content = true
+autowrap_mode = 0

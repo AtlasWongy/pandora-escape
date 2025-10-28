@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu0pjgfygarc8"]
+
+[ext_resource type="Script" uid="uid://bfdws66ryeqbp" path="res://levels/camera/camera.gd" id="1_yaamf"]
+
+[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("player")]
+offset = Vector2(160, 90)
+script = ExtResource("1_yaamf")
+player = NodePath("")
