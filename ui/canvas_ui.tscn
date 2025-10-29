@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ljf2os6mtsn8"]
+[gd_scene load_steps=4 format=3 uid="uid://ljf2os6mtsn8"]
 
 [ext_resource type="Script" uid="uid://djtop2q3lnqt1" path="res://ui/canvas_ui.gd" id="1_u35mm"]
 [ext_resource type="PackedScene" uid="uid://oeb2a4qw2da2" path="res://ui/attempt_counter/attempt_counter.tscn" id="2_7x0hf"]
+[ext_resource type="PackedScene" uid="uid://0cyp1bejltnf" path="res://ui/level_announcement/level_annoucement.tscn" id="3_o6xc2"]
 
 [node name="CanvasUI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_u35mm")
 
 [node name="AttemptCounter" parent="." instance=ExtResource("2_7x0hf")]
+
+[node name="LevelAnnouncement" parent="." instance=ExtResource("3_o6xc2")]

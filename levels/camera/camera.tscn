@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bfdws66ryeqbp" path="res://levels/camera/camera.gd" id="1_yaamf"]
 
-[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D"]
 offset = Vector2(160, 90)
 script = ExtResource("1_yaamf")
-player = NodePath("")

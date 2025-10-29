@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://0cyp1bejltnf"]
+
+[ext_resource type="Texture2D" uid="uid://2kmw1mwnv4g4" path="res://ui/level_announcement/level_announcement_banner_sprite.png" id="1_b0i04"]
+[ext_resource type="Script" uid="uid://bxrsfqkxe45eo" path="res://ui/level_announcement/level_announcement.gd" id="1_ysjse"]
+[ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/fonts/minecraft/minecraft.ttf" id="2_d1pyr"]
+
+[node name="LevelAnnouncement" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -8.0
+offset_right = 160.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ysjse")
+
+[node name="AnnoucementBannerLeft" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = -120.0
+offset_top = 7.0
+offset_bottom = 9.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("1_b0i04")
+
+[node name="StageNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -108.0
+offset_right = 28.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_d1pyr")
+text = "Stage 1"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="AnnoucementBannerRight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -1.0
+offset_right = 120.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("1_b0i04")

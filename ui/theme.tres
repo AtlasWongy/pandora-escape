@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://wpopm43pwjl2"]
 
-[ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/minecraft.ttf" id="1_rqugq"]
+[ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/fonts/minecraft/minecraft.ttf" id="1_rqugq"]
 
 [resource]
 RichTextLabel/fonts/normal_font = ExtResource("1_rqugq")

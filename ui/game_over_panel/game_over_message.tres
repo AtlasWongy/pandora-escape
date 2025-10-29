@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GameOverPanelResource" load_steps=2 format=3 uid="uid://bjelwnkaghxwd"]
 
-[ext_resource type="Script" uid="uid://2tpctwgc1koi" path="res://ui/game_over_panel_resource.gd" id="1_qts1y"]
+[ext_resource type="Script" uid="uid://2tpctwgc1koi" path="res://ui/game_over_panel/game_over_panel_resource.gd" id="1_qts1y"]
 
 [resource]
 script = ExtResource("1_qts1y")

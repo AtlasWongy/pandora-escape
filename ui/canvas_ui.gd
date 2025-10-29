@@ -5,7 +5,7 @@
 extends CanvasLayer
 class_name CanvasUI
 
-var game_over_screen = preload("res://ui/game_over_panel.tscn")
+var game_over_screen = preload("res://ui/game_over_panel/game_over_panel.tscn")
 
 func _ready() -> void:
 	SignalBus.game_over_screen_appeared.connect(_on_game_over_screen_appear)

@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://1gr2uillnhd6" path="res://assets/background.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bh4vmu4uysfo3" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://w6jflh7k00ju" path="res://assets/platform_tile.png" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://cp4avl7kl6wm3" path="res://levels/deathzone/death_zone_base_class.gd" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cq8p2l5s7m0r5" path="res://levels/deathzone/death_zone.tscn" id="4_lu1pw"]
+[ext_resource type="Script" uid="uid://b8uc5gdyu5ttx" path="res://levels/deathzone/death_zone_stage_1.gd" id="5_1jrwf"]
 [ext_resource type="PackedScene" uid="uid://ljf2os6mtsn8" path="res://ui/canvas_ui.tscn" id="5_lu1pw"]
 [ext_resource type="PackedScene" uid="uid://drwup4l72hy2o" path="res://levels/move_speed_trigger/move_speed_trigger_area.tscn" id="6_lu1pw"]
-[ext_resource type="PackedScene" uid="uid://cu0pjgfygarc8" path="res://levels/camera/camera_2d.tscn" id="7_lu1pw"]
-[ext_resource type="PackedScene" uid="uid://bkbhd6wnl2iad" path="res://levels/winzone/win_zone.tscn" id="9_1gn2t"]
+[ext_resource type="PackedScene" uid="uid://cu0pjgfygarc8" path="res://levels/camera/camera.tscn" id="7_lu1pw"]
+[ext_resource type="PackedScene" uid="uid://baiubrg8mmrc0" path="res://levels/winzone/win_zone.tscn" id="9_1gn2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_h2yge")
@@ -53,15 +53,16 @@ tile_set = SubResource("TileSet_lquwl")
 
 [node name="DeathZone" parent="." instance=ExtResource("4_lu1pw")]
 position = Vector2(10, 190)
-script = ExtResource("4_1bvp3")
+script = ExtResource("5_1jrwf")
 
 [node name="CanvasUI" parent="." instance=ExtResource("5_lu1pw")]
 
 [node name="MoveSpeedTriggerArea" parent="." instance=ExtResource("6_lu1pw")]
 position = Vector2(10, 164)
+script = null
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_lu1pw")]
 player = NodePath("../Player")
 
 [node name="Winzone" parent="." instance=ExtResource("9_1gn2t")]
-position = Vector2(114, 162)
+position = Vector2(954, 98)

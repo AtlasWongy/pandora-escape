@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ljf2os6mtsn8" path="res://ui/canvas_ui.tscn" id="3_8brcb"]
 [ext_resource type="Script" uid="uid://bpxwqk3qi02yh" path="res://player/player_controller_stage_two.gd" id="3_jnlsl"]
 [ext_resource type="Texture2D" uid="uid://w6jflh7k00ju" path="res://assets/platform_tile.png" id="4_ctuu2"]
-[ext_resource type="PackedScene" uid="uid://cu0pjgfygarc8" path="res://levels/camera/camera_2d.tscn" id="5_8brcb"]
+[ext_resource type="PackedScene" uid="uid://cu0pjgfygarc8" path="res://levels/camera/camera.tscn" id="5_8brcb"]
 [ext_resource type="PackedScene" uid="uid://cq8p2l5s7m0r5" path="res://levels/deathzone/death_zone.tscn" id="5_ctuu2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctuu2"]

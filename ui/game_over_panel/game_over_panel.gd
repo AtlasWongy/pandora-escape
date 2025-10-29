@@ -13,7 +13,6 @@ func _ready() -> void:
 
 func set_game_over_label() -> void:
 	if GameManager.current_game_state == GameManager.GameState.GAME_OVER:
-		print("Hello?")
 		game_over_label.append_text("[center]" + game_over_message_resource.GameOverTitle + "[/center]")
 	elif GameManager.current_game_state == GameManager.GameState.GAME_WON:
 		game_over_label.append_text("[center]" + game_finished_message_resource.GameOverTitle + "[/center]")

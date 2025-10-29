@@ -17,6 +17,7 @@ class_name PlayerBaseController
 @onready var tile_check_timer: Timer = $"Timers/TileCheckTimer"
 @onready var jump_buffer_timer: Timer = $"Timers/JumpBufferTimer"
 @onready var coyote_timer: Timer = $"Timers/CoyoteTimer"
+@onready var player_audio: PlayerAudio = $"PlayerAudio"
 
 var color_map: Dictionary = {
 	4194319: [Vector2i(0, 0), Vector4(0.6745, 0.1961, 0.1961, 1.0)], # Left Arrow Key | Red
@@ -63,8 +64,9 @@ func handle_jump() -> void:
 	if is_on_floor() and !can_coyote:
 		can_coyote = true
 	
-	if Input.is_action_pressed("ui_accept") and jump_buffer_timer.is_stopped():
+	if Input.is_action_just_pressed("ui_accept") and jump_buffer_timer.is_stopped():
 		jump_buffer_timer.start(jump_buffer_time)
+		player_audio.play_jump_audio()
 	
 	if !jump_buffer_timer.is_stopped() and (is_on_floor() or can_coyote):
 		velocity.y = jump_velocity

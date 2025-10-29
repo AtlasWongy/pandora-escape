@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcvb134oxlrcu"]
+
+[ext_resource type="Script" uid="uid://d1ba8qb63j5n8" path="res://singletons/game_manager/game_manager.gd" id="1_yhmci"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_yhmci")
+current_stage = 1

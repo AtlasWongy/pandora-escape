@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dix7ddmw10cmu"]
+
+[ext_resource type="Script" uid="uid://ccdv5wmvcxy5a" path="res://singletons/audio_manager/audio_manager.gd" id="1_ild0q"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ild0q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.833
+autoplay = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://oeb2a4qw2da2"]
 
 [ext_resource type="Script" uid="uid://bhm04yruvdukx" path="res://ui/attempt_counter/attempt_counter.gd" id="1_mk7nx"]
-[ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/minecraft.ttf" id="1_upf07"]
+[ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/fonts/minecraft/minecraft.ttf" id="1_upf07"]
 
 [node name="AttemptCounter" type="MarginContainer"]
 offset_right = 79.0
