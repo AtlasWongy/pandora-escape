@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccdv5wmvcxy5a" path="res://singletons/audio_manager/audio_manager.gd" id="1_ild0q"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_ild0q")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
