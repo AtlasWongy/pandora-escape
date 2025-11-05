@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq8p2l5s7m0r5"]
+[gd_scene load_steps=3 format=3 uid="uid://cq8p2l5s7m0r5"]
+
+[ext_resource type="Texture2D" uid="uid://xj5brfauxpnv" path="res://levels/deathzone/death_zone_sprite.png" id="1_q64fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(960, 20)
+size = Vector2(960, 8)
 
 [node name="DeathZone" type="Area2D"]
 
 [node name="DeathZoneShape" type="CollisionShape2D" parent="."]
 position = Vector2(470, 0)
 shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="DeathZoneSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_q64fs")
+offset = Vector2(160, 0)

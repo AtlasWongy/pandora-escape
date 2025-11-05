@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvelpa8o5s2nw"]
+
+[ext_resource type="Texture2D" uid="uid://0uk8jwm4f0es" path="res://zeus/golem/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_1nw83"]
+[ext_resource type="Texture2D" uid="uid://ddthhqod2n8qx" path="res://zeus/golem/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="2_17fjr"]
+
+[sub_resource type="Animation" id="Animation_bsu33"]
+resource_name = "Idle"
+length = 0.500013
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GolemSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_1le2k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GolemSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_17fjr"]
+resource_name = "Laser"
+length = 1.87501
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserPivot/LaserSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.87501),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0]
+}
+
+[sub_resource type="Animation" id="Animation_kfqxl"]
+resource_name = "Walk"
+step = 0.125
+
+[sub_resource type="Animation" id="Animation_7m24o"]
+resource_name = "Glowing"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GolemSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iq0re"]
+_data = {
+&"Glowing": SubResource("Animation_7m24o"),
+&"Idle": SubResource("Animation_bsu33"),
+&"Laser": SubResource("Animation_17fjr"),
+&"RESET": SubResource("Animation_1le2k"),
+&"Walk": SubResource("Animation_kfqxl")
+}
+
+[node name="Golem" type="CharacterBody2D"]
+
+[node name="GolemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1nw83")
+hframes = 10
+vframes = 10
+
+[node name="LaserPivot" type="Node2D" parent="."]
+
+[node name="LaserSprite" type="Sprite2D" parent="LaserPivot"]
+texture = ExtResource("2_17fjr")
+offset = Vector2(100, 0)
+vframes = 15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_iq0re")
+}
