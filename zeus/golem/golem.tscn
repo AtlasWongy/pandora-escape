@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bvelpa8o5s2nw"]
+[gd_scene load_steps=22 format=3 uid="uid://bvelpa8o5s2nw"]
 
 [ext_resource type="Texture2D" uid="uid://0uk8jwm4f0es" path="res://zeus/golem/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_1nw83"]
 [ext_resource type="Texture2D" uid="uid://ddthhqod2n8qx" path="res://zeus/golem/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="2_17fjr"]
 [ext_resource type="FontFile" uid="uid://bnn78rpe3h4lb" path="res://ui/fonts/minecraft/minecraft.ttf" id="3_kfqxl"]
 [ext_resource type="Script" uid="uid://dajf7o1xstlj" path="res://state_machine/state_machine.gd" id="4_tpdhi"]
 [ext_resource type="Script" uid="uid://c0raiwanafm4x" path="res://state_machine/state.gd" id="5_07xt3"]
+[ext_resource type="Script" uid="uid://ewkm64cf21sm" path="res://zeus/golem/state/idle.gd" id="5_i3rj5"]
 
 [sub_resource type="Animation" id="Animation_gq3op"]
 resource_name = "ArmorBuff"
@@ -428,7 +429,7 @@ shape = SubResource("CircleShape2D_kfqxl")
 script = ExtResource("4_tpdhi")
 
 [node name="Idle" type="Node2D" parent="StateMachine"]
-script = ExtResource("5_07xt3")
+script = ExtResource("5_i3rj5")
 
 [node name="Follow" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_07xt3")

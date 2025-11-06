@@ -4,4 +4,4 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_yhmci")
-current_stage = 1
+current_stage = 3
