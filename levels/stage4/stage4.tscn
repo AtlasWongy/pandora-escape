@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmwe5ujtgap80"]
+[gd_scene load_steps=5 format=3 uid="uid://bmwe5ujtgap80"]
 
 [ext_resource type="PackedScene" uid="uid://bvelpa8o5s2nw" path="res://zeus/golem/golem.tscn" id="1_nbksl"]
 [ext_resource type="PackedScene" uid="uid://bh4vmu4uysfo3" path="res://player/player.tscn" id="3_fwqjd"]
 [ext_resource type="Script" uid="uid://b8d6j72liuv5r" path="res://player/player_controller_stage_four.gd" id="3_qmpf6"]
+[ext_resource type="Texture2D" uid="uid://bcytyq85a2y58" path="res://icon.svg" id="4_fwqjd"]
 
 [node name="Stage4" type="Node2D"]
 
@@ -10,6 +11,10 @@
 position = Vector2(151, 91)
 
 [node name="Player" parent="." instance=ExtResource("3_fwqjd")]
-position = Vector2(104, 143)
+position = Vector2(103, 143)
 script = ExtResource("3_qmpf6")
-acceleration = 0.0
+acceleration = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-65, 114)
+texture = ExtResource("4_fwqjd")
