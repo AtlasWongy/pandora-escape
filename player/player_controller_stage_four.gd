@@ -13,8 +13,7 @@ func handle_movement() -> void:
 	var test_dir = Vector2(horizontal_direction, vertical_direction).normalized()
 
 	velocity = velocity.lerp(test_dir * 30.0, acceleration)
-	print(velocity)
-
+	
 func handle_gravity(_delta: float) -> void:
 	return
 

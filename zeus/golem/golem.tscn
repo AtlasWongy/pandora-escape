@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bvelpa8o5s2nw"]
+[gd_scene load_steps=28 format=3 uid="uid://bvelpa8o5s2nw"]
 
 [ext_resource type="Texture2D" uid="uid://0uk8jwm4f0es" path="res://zeus/golem/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_1nw83"]
 [ext_resource type="Script" uid="uid://chjled04t373f" path="res://zeus/golem/golem.gd" id="1_jlgp0"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://ewkm64cf21sm" path="res://zeus/golem/state/idle.gd" id="5_i3rj5"]
 [ext_resource type="Script" uid="uid://cdy1pe6dxtfe3" path="res://zeus/golem/state/follow.gd" id="6_i3rj5"]
 [ext_resource type="Script" uid="uid://03em27btbv62" path="res://zeus/golem/state/melee_attack.gd" id="8_gq3op"]
+[ext_resource type="Script" uid="uid://076jm3gxmys1" path="res://zeus/golem/state/homing_missle.gd" id="9_opige"]
+[ext_resource type="PackedScene" uid="uid://cwjuypfmsk6y2" path="res://zeus/golem/bullet/bullet.tscn" id="10_5ji8m"]
+[ext_resource type="Script" uid="uid://md8ga7wrssbh" path="res://zeus/golem/state/dash.gd" id="12_4ccyi"]
 
 [sub_resource type="Animation" id="Animation_gq3op"]
 resource_name = "ArmorBuff"
@@ -442,7 +445,8 @@ script = ExtResource("6_i3rj5")
 script = ExtResource("8_gq3op")
 
 [node name="HomingMissile" type="Node2D" parent="StateMachine"]
-script = ExtResource("5_07xt3")
+script = ExtResource("9_opige")
+bullet_node = ExtResource("10_5ji8m")
 
 [node name="LaserBeam" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_07xt3")
@@ -451,7 +455,7 @@ script = ExtResource("5_07xt3")
 script = ExtResource("5_07xt3")
 
 [node name="Dash" type="Node2D" parent="StateMachine"]
-script = ExtResource("5_07xt3")
+script = ExtResource("12_4ccyi")
 
 [node name="Death" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_07xt3")

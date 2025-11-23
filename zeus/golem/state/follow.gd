@@ -14,3 +14,5 @@ func transition() -> void:
 
 	if distance < 20:
 		get_parent().change_state("MeleeAttack")
+	elif distance > 130:
+		get_parent().change_state("HomingMissile")
