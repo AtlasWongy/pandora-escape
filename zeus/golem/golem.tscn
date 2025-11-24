@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bvelpa8o5s2nw"]
+[gd_scene load_steps=29 format=3 uid="uid://bvelpa8o5s2nw"]
 
 [ext_resource type="Texture2D" uid="uid://0uk8jwm4f0es" path="res://zeus/golem/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_1nw83"]
 [ext_resource type="Script" uid="uid://chjled04t373f" path="res://zeus/golem/golem.gd" id="1_jlgp0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://03em27btbv62" path="res://zeus/golem/state/melee_attack.gd" id="8_gq3op"]
 [ext_resource type="Script" uid="uid://076jm3gxmys1" path="res://zeus/golem/state/homing_missle.gd" id="9_opige"]
 [ext_resource type="PackedScene" uid="uid://cwjuypfmsk6y2" path="res://zeus/golem/bullet/bullet.tscn" id="10_5ji8m"]
+[ext_resource type="Script" uid="uid://ccjp55eg8msvt" path="res://zeus/golem/state/laser_beam.gd" id="11_62xkd"]
 [ext_resource type="Script" uid="uid://md8ga7wrssbh" path="res://zeus/golem/state/dash.gd" id="12_4ccyi"]
 
 [sub_resource type="Animation" id="Animation_gq3op"]
@@ -177,6 +178,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_17fjr"]
 resource_name = "Laser"
 length = 1.87501
+loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -189,6 +191,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/LaserBeam")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.875),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_target"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_jlgp0"]
@@ -359,6 +375,7 @@ vframes = 10
 [node name="LaserPivot" type="Node2D" parent="."]
 
 [node name="LaserSprite" type="Sprite2D" parent="LaserPivot"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_17fjr")
 offset = Vector2(100, 0)
 vframes = 15
@@ -449,7 +466,7 @@ script = ExtResource("9_opige")
 bullet_node = ExtResource("10_5ji8m")
 
 [node name="LaserBeam" type="Node2D" parent="StateMachine"]
-script = ExtResource("5_07xt3")
+script = ExtResource("11_62xkd")
 
 [node name="ArmorBuff" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_07xt3")
